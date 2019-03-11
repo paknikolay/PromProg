@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+    <head>
+        <title>Questions</title>
+    </head>
+    <body>
+	 {% if user.is_authenticated %}
+	 <br>
+	 <a href="/logout/">Выход</a>
+	 <h1><a href="/">Questions</a></h1>
+	 {% block new %}
+	 {% endblock%}
+         <div class="content container">
+		<div class="row">
+			<div class="col-md-8">
+		         	{% block content %}
+		                {% endblock %}
+		        </div>
+		</div>
+	 </div>
+	 {% else %}
+	 <a href="/login/">Вход</a>
+         <br>
+         <a href="/register/">Регистрация</a>
+         {% endif %}  
+ </body>
+</html>
